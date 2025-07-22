@@ -6,3 +6,5 @@ __pycache__
 .ccls-cache
 
 .idea/
+
+.aider*
