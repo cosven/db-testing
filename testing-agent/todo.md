@@ -1,0 +1,14 @@
+- [x] 创建并记录待办列表到 todo.md
+- [x] 为脚本增加 PromQL/响应调试输出选项并调整行为
+- [x] 更新 todo.md 标记完成并说明运行方式
+- [x] 调整脚本默认 interval 为 1m
+- [x] 在 copilot.md 添加 Prometheus 工具使用说明
+- [x] 新增 Doris 集群 SQL 执行脚本（自动获取 FE 地址）
+- [x] 在 pyproject.toml 增加 PyMySQL 依赖
+- [x] 在 copilot.md 添加 Doris SQL 脚本使用说明
+- [x] 修复 uv sync 构建失败（添加最小包目录）
+- [x] 查询近 3 小时集群 CPU 统计数据
+- [x] 给出 CPU 抖动结论
+- [x] 定位近 3 小时 CPU 波动时间点
+- [x] 创建 pyproject.toml 并声明 requests/click 依赖
+- [x] 更新 copilot.md 增加 uv 管理依赖的用法
