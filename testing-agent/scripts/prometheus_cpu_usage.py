@@ -5,8 +5,7 @@ import sys
 import click
 import requests
 
-
-PROMETHEUS_URL_DEFAULT = "http://172.20.48.32:9090"
+from prometheus_common import PROMETHEUS_URL_DEFAULT, query_prometheus
 PROMQL_TEMPLATE = (
     "((sum(rate(doris_be_cpu{job=\"$be_cluster_id\"}[$interval])) by (job, instance)) - "
     "(sum(rate(doris_be_cpu{mode=\"idle\", job=\"$be_cluster_id\"}[$interval])) by (job, instance)) - "
@@ -20,13 +19,6 @@ def build_promql(be_cluster_id: str, interval: str) -> str:
         PROMQL_TEMPLATE.replace("$be_cluster_id", be_cluster_id)
         .replace("$interval", interval)
     )
-
-
-def query_prometheus(prometheus_url: str, promql: str) -> dict:
-    query_url = prometheus_url.rstrip("/") + "/api/v1/query"
-    resp = requests.get(query_url, params={"query": promql}, timeout=10)
-    resp.raise_for_status()
-    return resp.json()
 
 
 def print_vector_result(result: dict) -> int:
