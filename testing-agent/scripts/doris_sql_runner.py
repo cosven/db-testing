@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
@@ -9,7 +10,9 @@ import pymysql
 import requests
 
 
-DEFAULT_CLUSTER_API = "http://172.20.48.32:8111/api/v1/cluster"
+DEFAULT_CLUSTER_API = os.getenv(
+    "DORIS_CLUSTER_API_URL", "http://cluster-api.example.com/api/v1/cluster"
+)
 DEFAULT_MYSQL_PORT = 9030
 
 

@@ -8,6 +8,18 @@
 - 输出简洁可读：先结论，再关键数据，再必要的命令或细节。
 - 不随意执行破坏性操作；涉及扩缩容、下线等动作先给出 SQL 方案。
 
+## 任务管理规范
+- 做事前先记录计划与拆解的 todo 到 `todo.md`。
+- 执行过程中实时更新进度，便于随时中断与继续。
+- 工作量较大的事情先提交 proposal，存放在 `proposals/`，并在 `todo.md` 中引用。
+- 任何时候不删除文件；删除前必须先人工确认。
+- 大任务完成后使用通知脚本提醒。
+
+## 测试记录规范
+- 使用 `testrun/` 目录，每个测试任务建立一个子目录（如 `testrun/20250119_xxx/`）。
+- 在子目录中保存测试配置、日志、环境信息与简要结论。
+- 内容需脱敏，避免内网地址或敏感信息直接进入仓库。
+
 ## 常用流程模板
 1) 明确测试范围（集群、时间窗口、指标）。  
 2) 运行脚本或 SQL 获取数据。  
@@ -24,7 +36,7 @@
 
 参数：
 - `--interval`：PromQL 区间，默认 `1m`（空数据可改 `5m`/`10m`）
-- `--prometheus-url`：默认 `http://172.20.48.32:9090`
+- `--prometheus-url`：默认读取 `PROMETHEUS_URL`（未设置则用示例地址）
 - `--print-promql`：打印最终 PromQL
 - `--debug`：打印 Prometheus 原始 JSON（stderr）
 
@@ -41,7 +53,7 @@
 - `--window-seconds`：时间窗口，默认 7200 秒
 - `--step-seconds`：步长，默认 60 秒
 - `--start`/`--end`：Unix 秒级时间戳
-- `--prometheus-url`：默认 `http://172.20.48.32:9090`
+- `--prometheus-url`：默认读取 `PROMETHEUS_URL`（未设置则用示例地址）
 - `--print-promql`、`--debug`
 
 输出：窗口范围、序列数量、最大抖动点、前后采样值。
@@ -58,12 +70,42 @@
 `uv run python3 scripts/doris_sql_runner.py --cluster-name <CLUSTER_NAME> --sql "select 1"`
 
 参数：
-- `--cluster-api`：默认 `http://172.20.48.32:8111/api/v1/cluster`
+- `--cluster-api`：默认读取 `DORIS_CLUSTER_API_URL`（未设置则用示例地址）
 - `--user`/`--password`/`--database`
 - `--sql`：可重复传入多条 SQL
 - `--sql-file`：从文件读取 SQL（按分号分隔）
 - `--port`：覆盖 FE MySQL 端口（默认解析为 9030）
 - `--timeout`：HTTP/MySQL 超时秒数
+
+## Jira Issue 提交工具
+脚本：`scripts/jira_create_issue.py`  
+依赖：`requests`、`click`（用 uv 管理）
+
+用法：
+`uv run python3 scripts/jira_create_issue.py --project-key <PROJECT_KEY> --issue-type Bug --summary "..." --description "..."`
+
+参数：
+- `--env-file`：默认 `.env`，读取 `JIRA_URL`、`JIRA_TOKEN`（bearer），`JIRA_USER`（basic）
+- `--auth`：`bearer` 或 `basic`（默认 bearer）
+- `--project-key`：Jira 项目 Key（可用 `JIRA_PROJECT`）
+- `--issue-type`：Issue 类型（可用 `JIRA_ISSUE_TYPE`，默认 Bug）
+- `--summary`/`--description`：标题与描述（或用 `--description-file`）
+- `--label`/`--component`/`--assignee`/`--priority`：可选字段
+- `--print-payload`/`--dry-run`：打印 payload 或仅预览
+
+## Feishu 通知工具
+脚本：`scripts/notify_feishu.py`  
+依赖：`requests`、`click`（用 uv 管理）
+
+用法：
+`uv run python3 scripts/notify_feishu.py --title "..." --markdown "..."`
+
+参数：
+- `--env-file`：默认 `.env`，读取 `FEISHU_NOTIFY_ENDPOINT`、`FEISHU_WEBHOOK`、`FEISHU_GITHUB_NAME`
+- `--notify-endpoint`：默认 `FEISHU_NOTIFY_ENDPOINT`，未设置则用内置默认
+- `--webhook`/`--name`：webhook 或个人 github 名（二选一）
+- `--card-json`/`--card-file`：直接提供 card（与 `--title`/`--markdown` 互斥）
+- `--print-payload`/`--dry-run`：打印 card 或仅预览
 
 ## 扩缩容类任务的要求
 - 先给出 SQL 方案与目标节点，不直接执行。

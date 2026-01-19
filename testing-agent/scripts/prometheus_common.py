@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+import os
+
 import requests
 
 
-PROMETHEUS_URL_DEFAULT = "http://172.20.48.32:9090"
+PROMETHEUS_URL_DEFAULT = os.getenv("PROMETHEUS_URL", "http://prometheus.example.com")
 
 
 def query_prometheus(prometheus_url: str, promql: str) -> dict:
