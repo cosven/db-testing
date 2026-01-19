@@ -67,3 +67,27 @@
 - [x] 将 testrun.md 迁移为 testrun 子任务
 - [x] 完成后发送通知
 - [x] 将 testrun/ 加入 .gitignore
+
+## 任务：查看 Jenkins 新测试结果
+- [x] 确认任务链接/编号与日志路径
+- [x] 拉取并定位关键失败/异常日志
+- [x] 汇总结论与建议
+- [x] 写入 testrun 子目录记录
+
+## 任务：创建 Jenkins 测试结果排查技能
+- [x] 读取 skill-creator 指南
+- [x] 设计并生成技能文档
+- [x] 说明使用方式并记录到能力列表
+- [x] 校验并打包 skill
+
+## 任务：移动 skills 到 ~/.codex/skills
+- [x] 确认是否需要保留仓库中的 skills 副本
+- [x] 执行移动并更新说明
+
+## 任务：共享 Jenkins 技能到仓库
+- [x] 拷贝 skill 到 `skills/jenkins-test-result/`
+- [x] 在 AGENTS.md 标注仓库路径
+
+## 任务：查看 skill-installer 技能说明
+- [x] 读取 skill-installer 的 SKILL.md
+- [x] 总结安装流程与关键注意事项

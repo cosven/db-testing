@@ -107,6 +107,11 @@
 - `--card-json`/`--card-file`：直接提供 card（与 `--title`/`--markdown` 互斥）
 - `--print-payload`/`--dry-run`：打印 card 或仅预览
 
+## Jenkins 测试结果排查技能
+Skill：`jenkins-test-result`  
+用途：通过 SSH 定位最新构建结果、解析 build.xml/log、提取异常并归档到 `testrun/` 子目录。
+仓库路径：`skills/jenkins-test-result/SKILL.md`
+
 ## 扩缩容类任务的要求
 - 先给出 SQL 方案与目标节点，不直接执行。
 - 缩容流程要包含：`DECOMMISSION` -> 等待完成 -> `DROP BACKEND`。
