@@ -91,3 +91,132 @@
 ## 任务：查看 skill-installer 技能说明
 - [x] 读取 skill-installer 的 SKILL.md
 - [x] 总结安装流程与关键注意事项
+
+## 任务：修复 feishu-notify 技能脚本未同步问题
+- [x] 明确缺失的脚本与目标位置
+- [x] 核对 feishu-notify 的 SKILL.md 要求
+- [x] 给出补齐方案并确认后执行
+
+## 任务：分析 testrun/c-project-ha-test 测试状态与错误原因
+- [x] 查看 testrun/c-project-ha-test 记录内容
+- [x] 补充本次经验到 testrun/c-project-ha-test 记录
+- [x] 获取 Jenkins SSH 连接信息/确认访问方式
+- [x] 定位查询与导入报错的关键原因
+- [x] 汇总当前运行状态与结论
+
+## 任务：读取 .env 获取 Jenkins 配置并更新 AGENTS.md 约定
+- [x] 查看 .env 中 Jenkins 相关配置
+- [x] 在 AGENTS.md 记录自动加载 .env 的要求
+
+## 任务：补充 Jenkins master 地址到 .env
+- [x] 更新 .env 增加 JENKINS_URL
+
+## 任务：允许 testrun 记录内网地址并更新记录
+- [x] 在 AGENTS.md 更新 testrun 内网地址记录规则
+- [x] 在 AGENTS.md 明确“经验”说明内网地址可记录
+- [x] 在 testrun/c-project-ha-test 记录 Jenkins master 地址
+
+## 任务：补发 c-project-ha-test 分析通知
+- [x] 使用 Feishu 通知脚本发送分析结果
+
+## 任务：停止并重建 Jenkins 测试
+- [x] 明确 Jenkins job/build 与参数
+- [x] 停止指定运行中的 build
+- [x] 触发 rebuild 并记录触发结果
+- [x] 更新 testrun 记录与通知
+- [x] 新增 Jenkins 控制脚本（stop/rebuild）
+- [x] 更新 jenkins-test-result 技能说明（含 stop/rebuild）
+
+## 任务：创建 Feishu 通知 skill 并安装到全局
+- [x] 初始化全局 skill 目录结构（feishu-notify）
+- [x] 编写 SKILL.md 使用说明
+- [x] 校验并安装到 ~/.codex/skills
+
+## 任务：重命名 Jenkins skill（扩大范围）
+- [x] 重命名目录与 frontmatter（jenkins-test-result -> jenkins-test-control）
+- [x] 更新 AGENTS.md 中的名称与路径说明
+- [x] 调整 SKILL.md 描述与标题
+
+## 任务：查看重跑构建运行状态
+- [x] 查询 Jenkins queue/build 状态
+- [x] 更新 testrun 记录
+
+## 任务：定位 regression-debug #93 失败原因
+- [x] 获取 build #93 日志与结果
+- [x] 提取关键错误与失败统计
+- [x] 更新 testrun 记录并反馈
+
+## 任务：重跑 regression-debug（用例已修复）
+- [x] 明确重跑目标 build 与参数
+- [x] 触发 rebuild
+- [x] 更新 testrun 记录与通知
+
+## 任务：改进 Jenkins 控制工具与技能说明
+- [x] 梳理改进点并落地到脚本
+- [x] 更新 jenkins-test-control 技能说明
+
+## 任务：优化队列等待输出 build 链接
+- [x] 重跑后等待 30s 获取 queue 可执行 build
+- [x] 更新 jenkins-test-control 技能说明
+
+## 任务：增强 Jenkins 控制脚本（wait/testrun）
+- [x] 增加构建完成等待能力（--wait）
+- [x] 增加 testrun 自动记录能力（--testrun-file）
+- [x] 更新 jenkins-test-control 技能说明
+
+## 任务：补充 queue 5606 对应 build 信息
+- [x] 记录 build #94 与链接
+
+## 任务：查看 build #94 运行状态与失败
+- [x] 获取 build #94 结果与统计
+- [x] 记录查询/导入失败现象
+
+## 任务：补充 build #94 commitTxn failed 详情
+- [x] 提取 commitTxn failed 上下文与交易信息
+- [x] 更新 testrun 记录
+
+## 任务：提取 build #94 commitTxn failed 完整上下文并通知
+- [x] 生成 commitTxn failed 上下文日志文件
+- [x] 更新 testrun 记录引用
+- [x] 发送通知
+
+## 任务：重组织高可用测试 testrun（c-project-ha-test）
+- [x] 更新 testrun 结构与说明
+
+## 任务：迁移 Jenkins 脚本并更新 AGENTS.md
+- [x] 移动 Jenkins 脚本到 jenkins-test-control skill
+- [x] 更新 jenkins-test-control 技能说明中的脚本路径
+- [x] 更新 AGENTS.md 仅引用 skill
+
+## 任务：创建 Prometheus 观测 skill（prom-checker）
+- [x] 初始化 prom-checker skill 目录与说明
+- [x] 迁移 Prometheus 脚本到 skill
+- [x] 更新 AGENTS.md 引用 prom-checker
+
+## 任务：创建 Jira skill 并迁移脚本
+- [x] 初始化 jira-issue skill 目录与说明
+- [x] 迁移 Jira 脚本到 skill
+- [x] 更新 AGENTS.md 引用 Jira skill
+
+## 任务：创建 Doris skill 并迁移脚本
+- [x] 初始化 doris-sql skill 目录与说明
+- [x] 迁移 Doris 脚本到 skill
+- [x] 更新 AGENTS.md 引用 Doris skill
+
+## 任务：重命名 testrun 目录（regression-debug-92 -> c-project-ha-test）
+- [x] 确认实际目录名并执行重命名
+- [x] 同步更新引用路径
+
+## 任务：重触发高可用测试 Jenkins 任务（build #88/#94，更新标题日期）
+- [x] 明确 job 名称与标题参数 key/新日期
+- [x] 确认影响后触发重跑
+- [x] 记录触发结果（如需写入 testrun/通知）
+
+## 任务：停止旧的 Jenkins 构建（高可用测试）
+- [x] 确认需停止的 build 编号/范围
+- [x] 说明停止方案并等待确认
+- [x] 执行停止并记录结果
+
+## 任务：查看新构建运行状态与报错（build #95/#96）
+- [x] 查询构建状态与日志关键报错
+- [x] 记录结果并反馈
