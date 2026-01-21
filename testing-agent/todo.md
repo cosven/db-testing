@@ -220,3 +220,30 @@
 ## 任务：查看新构建运行状态与报错（build #95/#96）
 - [x] 查询构建状态与日志关键报错
 - [x] 记录结果并反馈
+
+## 任务：提取 build #96 各类型错误详情并通知
+- [x] 获取各类型错误详情（Point/Non-Point/Stream Load/Insert Values/Insert Select）
+- [x] 汇总并发送 Feishu 通知
+
+## 任务：提取 Communications link failure 上下文示例并通知
+- [x] 提取 1-2 个上下文示例
+- [x] 记录到 testrun 并发送通知
+
+## 任务：修正 Communications link failure 通知格式并补发
+- [x] 重新发送格式化通知
+
+## 任务：回归发版测试失败用例提 Jira（regression-release #2318/#2314）
+- [x] 拉取 Jenkins 测试报告并定位失败用例/错误信息
+- [x] 汇总两次失败的共性原因与影响范围
+- [x] 生成 Jira 草稿并请用户 review
+- [x] 用户确认后提交 Jira（assignee 不存在，改为不指定）
+
+## 任务：核对 Jira 字段填写（DORIS-24263）
+- [x] 查询 assignee / labels / affects version / fix version
+- [x] 输出字段值并总结下次填写建议
+
+## 任务：更新 Jira skill（补充字段与示例）
+- [x] 总结本次经验并整理示例命令
+- [x] 扩展 Jira 创建脚本支持 affects/fix versions
+- [x] 更新 jira-issue SKILL.md 说明与示例
+- [x] 自测 dry-run 验证 payload

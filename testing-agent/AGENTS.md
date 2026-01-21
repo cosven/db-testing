@@ -14,7 +14,7 @@
 - 执行过程中实时更新进度，便于随时中断与继续。
 - 工作量较大的事情先提交 proposal，存放在 `proposals/`，并在 `todo.md` 中引用。
 - 任何时候不删除文件；删除前必须先人工确认。
-- 大任务完成后使用通知脚本提醒。
+- 大任务完成后使用全局 `feishu-notify` skill 发送通知提醒。
 
 ## 测试记录规范
 - 使用 `testrun/` 目录，每个测试任务建立一个子目录（如 `testrun/20250119_xxx/`）。
@@ -33,7 +33,7 @@
 - Prometheus 观测：`prom-checker`，文档见 `.codex/skills/prom-checker/SKILL.md`。
 - Doris SQL 执行：`doris-sql`，文档见 `.codex/skills/doris-sql/SKILL.md`。
 - Jira Issue 提交：`jira-issue`，文档见 `.codex/skills/jira-issue/SKILL.md`。
-- 通知：`feishu-notify`，文档见 `/Users/cosven/.codex/skills/feishu-notify/SKILL.md`。
+- 通知：使用全局 `feishu-notify` skill，脚本路径 `~/.codex/skills/feishu-notify/notify_feishu.py`，文档见 `/Users/cosven/.codex/skills/feishu-notify/SKILL.md`。
 - 其他能力后续整理为 skill，新增后在 Skills 列表中引用。
 
 ## 扩缩容类任务的要求

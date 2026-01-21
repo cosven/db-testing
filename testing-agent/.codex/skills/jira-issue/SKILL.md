@@ -32,6 +32,25 @@ uv run python3 .codex/skills/jira-issue/scripts/jira_create_issue.py \
 - `--issue-type`：也可用 `JIRA_ISSUE_TYPE`，默认 Bug
 - `--description-file`：从文件读取描述
 - `--label`/`--component`/`--assignee`/`--priority`
+- `--affects-version`/`--fix-version`：对应 Affects Version / Fix Version（可重复）
 - `--print-payload`/`--dry-run`
 
 输出：`key` 与 `self`（若返回）。
+
+注意事项：
+- `--assignee` 使用 Jira 用户名（不是邮箱），如 `laihui`
+
+经验示例（回归发版测试失败用例）：
+```bash
+uv run python3 .codex/skills/jira-issue/scripts/jira_create_issue.py \
+  --project-key DORIS \
+  --issue-type Bug \
+  --summary "回归发版测试 S3 load 因内存超限失败（regression-release #2318/#2314）" \
+  --description "..." \
+  --priority Highest \
+  --assignee laihui \
+  --label 存储小组 \
+  --label 导入 \
+  --affects-version enter-3.1.4 \
+  --fix-version 3.1.4
+```

@@ -47,6 +47,8 @@ def build_payload(
     description: str,
     labels: Iterable[str],
     components: Iterable[str],
+    affects_versions: Iterable[str],
+    fix_versions: Iterable[str],
     assignee: Optional[str],
     priority: Optional[str],
 ) -> dict:
@@ -62,6 +64,12 @@ def build_payload(
     component_list = [component for component in components if component]
     if component_list:
         fields["components"] = [{"name": name} for name in component_list]
+    affects_list = [version for version in affects_versions if version]
+    if affects_list:
+        fields["versions"] = [{"name": name} for name in affects_list]
+    fix_list = [version for version in fix_versions if version]
+    if fix_list:
+        fields["fixVersions"] = [{"name": name} for name in fix_list]
     if assignee:
         fields["assignee"] = {"name": assignee}
     if priority:
@@ -102,6 +110,18 @@ def build_payload(
 )
 @click.option("--label", "labels", multiple=True, help="Add a label (repeatable)")
 @click.option("--component", "components", multiple=True, help="Add a component (repeatable)")
+@click.option(
+    "--affects-version",
+    "affects_versions",
+    multiple=True,
+    help="Add an affects version (repeatable)",
+)
+@click.option(
+    "--fix-version",
+    "fix_versions",
+    multiple=True,
+    help="Add a fix version (repeatable)",
+)
 @click.option("--assignee", help="Assignee username (optional)")
 @click.option("--priority", help="Priority name (optional)")
 @click.option("--print-payload", is_flag=True, help="Print request payload")
@@ -119,6 +139,8 @@ def main(
     description_file: Optional[Path],
     labels: Iterable[str],
     components: Iterable[str],
+    affects_versions: Iterable[str],
+    fix_versions: Iterable[str],
     assignee: Optional[str],
     priority: Optional[str],
     print_payload: bool,
@@ -131,6 +153,11 @@ def main(
     project_key = resolve_value(project_key, "JIRA_PROJECT", required=True)
     issue_type = issue_type or os.getenv("JIRA_ISSUE_TYPE", "Bug")
     description_text = read_description(description, description_file)
+    if assignee and "@" in assignee:
+        click.echo(
+            "Warning: assignee expects Jira username, not email (e.g. laihui).",
+            err=True,
+        )
 
     payload = build_payload(
         project_key=project_key,
@@ -139,6 +166,8 @@ def main(
         description=description_text,
         labels=labels,
         components=components,
+        affects_versions=affects_versions,
+        fix_versions=fix_versions,
         assignee=assignee,
         priority=priority,
     )
