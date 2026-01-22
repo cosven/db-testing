@@ -7,12 +7,13 @@
 - 能复用现有脚本就复用，尽量用 `uv run python3 ...` 执行。
 - 默认读取并优先使用 `.env` 中的配置（如 URL/Token/账号）；需要时明确提示并确认。
 - 输出简洁可读：先结论，再关键数据，再必要的命令或细节。
+- 每次回复结束后触发 iTerm2 Bell 通知（使用 `iterm-bell-notify` skill 脚本）。
 - 不随意执行破坏性操作；涉及扩缩容、下线等动作先给出 SQL 方案。
 
 ## 任务管理规范
-- 做事前先记录计划与拆解的 todo 到 `todo.md`。
+- 做事前先记录计划与拆解的 todo 到 `progress/todo.md`。
 - 执行过程中实时更新进度，便于随时中断与继续。
-- 工作量较大的事情先提交 proposal，存放在 `proposals/`，并在 `todo.md` 中引用。
+- 工作量较大的事情先提交 proposal，存放在 `progress/proposals/`，并在 `progress/todo.md` 中引用。
 - 任何时候不删除文件；删除前必须先人工确认。
 - 大任务完成后使用全局 `feishu-notify` skill 发送通知提醒。
 
@@ -33,6 +34,7 @@
 - Prometheus 观测：`prom-checker`，文档见 `.codex/skills/prom-checker/SKILL.md`。
 - Doris SQL 执行：`doris-sql`，文档见 `.codex/skills/doris-sql/SKILL.md`。
 - Jira Issue 提交：`jira-issue`，文档见 `.codex/skills/jira-issue/SKILL.md`。
+- iTerm2 Bell 通知：`iterm-bell-notify`，文档见 `.codex/skills/iterm-bell-notify/SKILL.md`。
 - 通知：使用全局 `feishu-notify` skill，脚本路径 `~/.codex/skills/feishu-notify/notify_feishu.py`，文档见 `/Users/cosven/.codex/skills/feishu-notify/SKILL.md`。
 - 其他能力后续整理为 skill，新增后在 Skills 列表中引用。
 
