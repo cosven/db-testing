@@ -32,7 +32,8 @@
 - 本仓库工具说明以 skill 文档为准，AGENTS 不再记录脚本用法细节。
 - Jenkins 测试执行与管理：`jenkins-test-control`，文档见 `.codex/skills/jenkins-test-control/SKILL.md`。
 - Prometheus 观测：`prom-checker`，文档见 `.codex/skills/prom-checker/SKILL.md`。
-- Doris SQL 执行：`doris-sql`，文档见 `.codex/skills/doris-sql/SKILL.md`。
+- Doris 集群 API：`internal-doris-cluster-api`，文档见 `.codex/skills/internal-doris-cluster-api/SKILL.md`。
+- Doris MySQL 直连：`doris-mysql`，文档见 `.codex/skills/doris-mysql/SKILL.md`。
 - Jira Issue 提交：`jira-issue`，文档见 `.codex/skills/jira-issue/SKILL.md`。
 - iTerm2 Bell 通知：`iterm-bell-notify`，文档见 `.codex/skills/iterm-bell-notify/SKILL.md`。
 - 通知：使用全局 `feishu-notify` skill，脚本路径 `~/.codex/skills/feishu-notify/notify_feishu.py`，文档见 `/Users/cosven/.codex/skills/feishu-notify/SKILL.md`。
