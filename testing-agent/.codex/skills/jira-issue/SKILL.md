@@ -37,6 +37,21 @@ uv run python3 .codex/skills/jira-issue/scripts/jira_create_issue.py \
 
 输出：`key` 与 `self`（若返回）。
 
+## 评论 Issue
+
+脚本：`.codex/skills/jira-issue/scripts/jira_comment_issue.py`
+
+用法：
+```bash
+uv run python3 .codex/skills/jira-issue/scripts/jira_comment_issue.py \
+  --issue-key DORIS-12345 --comment "..."
+```
+
+常用参数：
+- `--issue-key`：目标 Issue key
+- `--comment` / `--comment-file`：评论内容
+- `--print-payload` / `--dry-run`：预览请求
+
 注意事项：
 - `--assignee` 使用 Jira 用户名（不是邮箱），如 `laihui`
 
