@@ -1,5 +1,5 @@
 {
-  "name": "ysw-rebalance-0203",
+  "name": "example-cluster",
   "FESpecs": {
     "count": 3,
     "specification": "ecs.g7.2xlarge",
@@ -12,6 +12,6 @@
     "diskCount": 2,
     "diskSize": 300
   },
-  "user": "yinshaowen",
-  "usage": "warm up rebalance test"
+  "user": "your-name",
+  "usage": "example usage"
 }

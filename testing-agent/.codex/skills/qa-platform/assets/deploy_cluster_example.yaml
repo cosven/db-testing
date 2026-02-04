@@ -1,14 +1,14 @@
-cluster: ysw-rebalance-0203
+cluster: example-cluster
 kind: Workflows
-name: ysw-rebalance-0203_deploy
+name: example-cluster_deploy
 steps:
   - name: deploy
     kind: Deploy
     continueOn: false
     parameters:
       product: doris-cloud
-      branch: branch-3.1
-      artifactUrl: oss://selectdb-qa-test/daily_doris_build/9f63d2ab3c42bd9c044b26f71eedd705f5d23d2c_release_output.tar.gz
+      branch: branch-x.y
+      artifactUrl: oss://your-bucket/path/to/doris_release.tar.gz
       FEConf: |
         JAVA_OPTS_FOR_JDK_17="-Djavax.security.auth.useSubjectCredsOnly=false -Xmx24g -Xms24g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$LOG_DIR -Xlog:gc*:$LOG_DIR/fe.gc.log.$CUR_DATE:time,uptime:filecount=10,filesize=50M --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens java.base/jdk.internal.ref=ALL-UNNAMED"
         sys_log_roll_num=200

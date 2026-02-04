@@ -28,8 +28,8 @@ description: 通过 QA 平台 API 管理集群/工作流/发版/伸缩，并解�
   ```bash
   uv run python3 .codex/skills/qa-platform/scripts/qa_platform.py apply \
     --payload .codex/skills/qa-platform/assets/apply_cluster_example.json
-  uv run python3 .codex/skills/qa-platform/scripts/qa_platform.py list --name ysw-rebalance-0203 --status Running
-  uv run python3 .codex/skills/qa-platform/scripts/qa_platform.py get --name ysw-rebalance-0203
+  uv run python3 .codex/skills/qa-platform/scripts/qa_platform.py list --name <CLUSTER_NAME> --status Running
+  uv run python3 .codex/skills/qa-platform/scripts/qa_platform.py get --name <CLUSTER_NAME>
   ```
   > 说明：`apply` 默认自动判断接口类型；`list` 支持 `--name/--user/--status` 过滤。
   > 提示：示例文件仅供参考，使用前请按实际集群/用户/规格改写。
@@ -55,7 +55,7 @@ description: 通过 QA 平台 API 管理集群/工作流/发版/伸缩，并解�
   ```bash
   uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py \
     --output ./output/cluster_get_response.json \
-    get --name ysw-rebalance-0203
+    get --name <CLUSTER_NAME>
   ```
 - 提交部署 workflow（YAML 已修正 cluster/name）：
   ```bash
@@ -78,8 +78,8 @@ description: 通过 QA 平台 API 管理集群/工作流/发版/伸缩，并解�
 - 常用示例：
   ```bash
   uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py list
-  uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py list --name ysw-rebalance-0203 --status Running
-  uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py list --param user=yinshaowen --param phase=Running
+  uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py list --name <CLUSTER_NAME> --status Running
+  uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py list --param user=<USER> --param phase=Running
   uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py get --name <CLUSTER_NAME>
   uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py update-ttl --name <CLUSTER_NAME> --estimated-release-at 2026-02-01T00:00:00Z --confirm
   uv run python3 .codex/skills/qa-platform/scripts/cluster_ops.py power-off --name <CLUSTER_NAME> --confirm
