@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unified Notify"
+  short_description: "Send notifications across terminal/GUI/VSCode"
+  default_prompt: "Use $unified-notify to send a cross-platform notification when the task finishes."

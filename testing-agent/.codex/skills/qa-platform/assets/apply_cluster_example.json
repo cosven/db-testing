@@ -1,0 +1,17 @@
+{
+  "name": "ysw-rebalance-0203",
+  "FESpecs": {
+    "count": 3,
+    "specification": "ecs.g7.2xlarge",
+    "diskCount": 1,
+    "diskSize": 800
+  },
+  "BESpecs": {
+    "count": 8,
+    "specification": "ecs.g7.2xlarge",
+    "diskCount": 2,
+    "diskSize": 300
+  },
+  "user": "yinshaowen",
+  "usage": "warm up rebalance test"
+}

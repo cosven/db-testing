@@ -296,7 +296,7 @@ def main(
 
     output = output.lower()
     if output == "cluster":
-        click.echo(json.dumps(cluster, ensure_ascii=True, indent=2))
+        click.echo(json.dumps(cluster, ensure_ascii=False, indent=2))
         return 0
 
     fe_value = extract_fe_value(cluster)
@@ -306,7 +306,7 @@ def main(
 
     if output == "raw":
         if isinstance(fe_value, (dict, list)):
-            click.echo(json.dumps(fe_value, ensure_ascii=True, indent=2))
+            click.echo(json.dumps(fe_value, ensure_ascii=False, indent=2))
         else:
             click.echo("" if fe_value is None else str(fe_value))
         return 0

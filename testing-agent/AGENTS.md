@@ -5,9 +5,10 @@
 ## 工作原则
 - 先确认需求，再行动；不清楚的地方先问清楚（例如集群名、时间范围、期望输出）。
 - 能复用现有脚本就复用，尽量用 `uv run python3 ...` 执行。
+- 临时一次性操作优先用 shell/curl，便于复现；可复用流程再沉淀为 Python 脚本。
 - 默认读取并优先使用 `.env` 中的配置（如 URL/Token/账号）；需要时明确提示并确认。
 - 输出简洁可读：先结论，再关键数据，再必要的命令或细节。
-- 每次回复结束后触发 iTerm2 Bell 通知（使用 `iterm-bell-notify` skill 脚本）。
+- 默认不主动通知；仅在用户明确要求或需要验证时使用通知相关 skill。
 - 不随意执行破坏性操作；涉及扩缩容、下线等动作先给出 SQL 方案。
 
 ## 任务管理规范
@@ -32,10 +33,11 @@
 - 本仓库工具说明以 skill 文档为准，AGENTS 不再记录脚本用法细节。
 - Jenkins 测试执行与管理：`jenkins-test-control`，文档见 `.codex/skills/jenkins-test-control/SKILL.md`。
 - Prometheus 观测：`prom-checker`，文档见 `.codex/skills/prom-checker/SKILL.md`。
-- Doris 集群 API：`internal-doris-cluster-api`，文档见 `.codex/skills/internal-doris-cluster-api/SKILL.md`。
+- QA 平台 API：`qa-platform`，文档见 `.codex/skills/qa-platform/SKILL.md`。
 - Doris MySQL 直连：`doris-mysql`，文档见 `.codex/skills/doris-mysql/SKILL.md`。
 - Jira Issue 提交：`jira-issue`，文档见 `.codex/skills/jira-issue/SKILL.md`。
-- iTerm2 Bell 通知：`iterm-bell-notify`，文档见 `.codex/skills/iterm-bell-notify/SKILL.md`。
+- iTerm2 Bell 通知（按需）：`iterm-bell-notify`，文档见 `.codex/skills/iterm-bell-notify/SKILL.md`。
+- 统一通知（按需）：`unified-notify`，文档见 `.codex/skills/unified-notify/SKILL.md`。
 - 通知：使用全局 `feishu-notify` skill，脚本路径 `~/.codex/skills/feishu-notify/notify_feishu.py`，文档见 `/Users/cosven/.codex/skills/feishu-notify/SKILL.md`。
 - 其他能力后续整理为 skill，新增后在 Skills 列表中引用。
 
